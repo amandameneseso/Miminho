@@ -25,26 +25,33 @@ document.addEventListener("DOMContentLoaded", () => {
       navbar.classList.remove("active");
     }
   });
-});
 
-const image = document.getElementById("previewImage");
-const image1 = "previa.png"; // imagem inicial
-const image2 = "previa-desktop.png"; // imagem alternativa
+  // --- Image Preview Toggle ---
+  const image = document.getElementById("previewImage");
+  const image1 = "previa.png";
+  const image2 = "previa-desktop2.png";
 
-let showingFirst = true;
+  let showingFirst = true;
 
-image.addEventListener("click", () => {
-  if (showingFirst) {
-    image.src = image2;
-    image.classList.add("desktop-variant"); // Adiciona a classe quando for previa-desktop.png
-  } else {
-    image.src = image1;
-    image.classList.remove("desktop-variant"); // Remove a classe quando voltar para previa.png
+  if (image) {
+    image.title = "";
+
+    image.addEventListener("click", () => {
+      if (showingFirst) {
+        image.src = image2;
+        image.classList.add("desktop-variant");
+        // Adiciona a frase SOMENTE quando for image2
+        image.title = "Sim, também fica de noite no Miminho!";
+      } else {
+        image.src = image1;
+        image.classList.remove("desktop-variant");
+        // Remove a frase SOMENTE quando voltar para imagem1
+        image.title = "";
+      }
+      showingFirst = !showingFirst;
+    });
   }
-  showingFirst = !showingFirst;
-});
 
-document.addEventListener("DOMContentLoaded", function () {
   // --- FAQ Accordion Logic ---
   const faqQuestions = document.querySelectorAll(".faq-question");
 
