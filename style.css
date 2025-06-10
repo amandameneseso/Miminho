@@ -512,69 +512,74 @@ p {
 
 /* Seção de Perguntas Frequentes (FAQ) */
 .faq-section {
-    text-align: left;
-}
-
-.faq-list {
-    max-width: 800px;
-    margin: 50px auto 0 auto;
+  padding: 40px;
+  text-align: center;
+  /* max-width: 700px; */
+  max-width: 65%;
+  margin: 0 auto;
 }
 
 .faq-item {
-    background-color: var(--white);
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-light);
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    box-shadow: var(--shadow-medium);
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden; /* Esconde o conteúdo da resposta quando não estiver expandido */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 2px solid var(--primary-color);
 }
 
 .faq-question {
-    padding: 20px 25px;
-    background-color: var(--background-dark);
-    color: var(--secondary-color);
-    font-size: 1.2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.3s ease;
+  font-size: 1.1em;
+  color: #4a4a4a;
+  padding: 20px 25px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  position: relative; /* Para o indicador de expansão */
+  margin-bottom: 0;
 }
 
-.faq-question:hover {
-    background-color: #e0e0e0;
+.faq-question::after {
+  content: "+"; /* Ícone de mais */
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
 }
 
-.faq-question i {
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-question i {
-    transform: rotate(180deg);
+.faq-item.active .faq-question::after {
+  content: "-"; /* Ícone de menos quando ativo */
+  transform: rotate(0deg); /* Garante que o '-' não rotacione */
 }
 
 .faq-answer {
-    padding: 0 25px;
-    background-color: var(--white);
-    max-height: 0; /* Escondido por padrão */
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-}
-
-.faq-item.active .faq-answer {
-    max-height: 200px; /* Ajuste conforme o conteúdo, ou use 'auto' com precaução */
-    padding: 20px 25px;
+  max-height: 0; /* Inicia escondido */
+  padding: 0 25px;
+  background-color: #fcfcfc;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Transição para o max-height e padding */
+  text-align: left;
 }
 
 .faq-answer p {
-    margin-bottom: 0;
-    color: var(--light-text-color);
+  color: #666;
+  font-size: 1em;
+  line-height: 1.6;
+  padding-bottom: 20px;
+  margin: 0; /* Remove margem padrão do parágrafo dentro da resposta */
+}
+
+.faq-answer ul {
+  list-style: circle;
+}
+
+.faq-answer li {
+  color: #666;
+  line-height: 1.4;
+  margin: 0; /* Remove margem padrão do parágrafo dentro da resposta */
 }
 
 /* Seção de Compra */
