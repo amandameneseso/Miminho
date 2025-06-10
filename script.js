@@ -42,13 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('active');
         });
     });
+});
 
-    // 3. Efeito de scroll na navbar (opcional, se quiser uma navbar que muda ao scrollar)
-    // window.addEventListener('scroll', () => {
-    //     if (window.scrollY > 50) {
-    //         navbar.classList.add('scrolled');
-    //     } else {
-    //         navbar.classList.remove('scrolled');
-    //     }
-    // });
+const image = document.getElementById("previewImage");
+
+const image1 = "previa.png"; // imagem inicial
+const image2 = "previa-desktop.png"; // imagem alternativa
+
+let showingFirst = true;
+
+image.addEventListener("click", () => {
+  if (showingFirst) {
+    image.src = image2;
+    image.classList.add("desktop-variant"); // Adiciona a classe quando for previa-desktop.png
+  } else {
+    image.src = image1;
+    image.classList.remove("desktop-variant"); // Remove a classe quando voltar para previa.png
+  }
+  showingFirst = !showingFirst;
 });

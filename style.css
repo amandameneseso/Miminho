@@ -112,6 +112,9 @@ h2 {
     font-size: 2em;
     margin-bottom: 40px;
     font-family: var(--font-family-secondary);
+    border-bottom: 2px dashed var(--primary-color);
+    width: fit-content;
+    margin: 0 auto 40px auto;
 }
 
 h3 {
@@ -337,23 +340,62 @@ p {
     box-shadow: var(--shadow-medium);
     border: #5c6275 solid 5px;
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.hero-image img.desktop-variant {
+  max-width: 75%;
 }
 
 .hero-image img:hover {
     transform: scale(1.03);
 }
 
+/* Seu CSS existente para .como-funciona */
+.como-funciona {
+    color: var(--light-text-color);
+    background-color: var(--white);
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    /* box-shadow: var(--shadow-medium); */
+    border: 2px dashed var(--primary-color);
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* text-align: center; Remover se quiser o texto alinhado à esquerda */
+}
+
+.como-funciona h2 {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Ajustes para a lista */
+.como-funciona ol {
+    padding-left: 20px; /* Ajuste este valor para mover toda a lista para a esquerda */
+    text-align: left; /* Garante que o texto da lista comece à esquerda */
+}
+
+.como-funciona li {
+    margin-bottom: 10px; /* Espaço entre os itens da lista */
+    /* A técnica mais comum para alinhar o número com o texto */
+    padding-left: 1.5em; /* Espaço para o número e um pouco mais */
+    text-indent: -1.5em; /* Puxa o texto para a esquerda para que o número caia no espaço */
+}
+
 /* Seção de Recursos (Features) */
 .features-section .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 50px;
+    width: 85%;
+    margin: 0 auto;
 }
 
 .feature-grid h3 {
     font-family: var(--font-family-secondary);
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 .feature-card {
@@ -363,6 +405,7 @@ p {
     box-shadow: var(--shadow-light);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px dashed var(--primary-color);
 }
 
 .feature-card:hover {
@@ -371,7 +414,7 @@ p {
 }
 
 .feature-card .icon {
-    font-size: 3em;
+    font-size: 2.7em;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
@@ -538,7 +581,9 @@ p {
 .buy-section .price-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 60%;
     gap: 30px;
+    margin: 0 auto;
     margin-top: 50px;
 }
 
@@ -555,11 +600,12 @@ p {
 }
 
 .price-card.featured {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 50%, var(--white) 100%);
     color: var(--white);
-    transform: scale(1.05); /* Destaca o plano em destaque */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    /* transform: scale(1.05); */
+    /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); */
     border: 2px solid var(--white);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .price-card.featured h3,
@@ -577,18 +623,19 @@ p {
     color: var(--primary-color);
 }
 
-.price-card:hover:not(.featured) {
+.price-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); */
 }
 
 .price-card h3 {
     margin-bottom: 10px;
-    font-size: 2em;
+    font-size: 1.3em;
+    font-family: "Silkscreen", sans-serif;
 }
 
 .price-card .price {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 30px;
@@ -597,13 +644,18 @@ p {
 .price-card .price span {
     font-size: 0.5em;
     font-weight: normal;
-    color: var(--light-text-color);
+    /* color: var(--light-text-color); */
 }
 
 .price-card.featured .price span {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.indisponivel {
+    font-size: 0.9em;
+    color: var(--white);
+    font-weight: bold;
+}
 
 .price-card ul {
     list-style: none;
@@ -614,7 +666,7 @@ p {
 
 .price-card ul li {
     margin-bottom: 10px;
-    font-size: 1.1em;
+    font-size: 1em;
     color: var(--light-text-color);
 }
 
@@ -623,7 +675,6 @@ p {
 }
 
 .price-card ul li i.fa-check {
-    color: #28a745; /* Verde para check */
     margin-right: 10px;
 }
 
@@ -632,19 +683,13 @@ p {
 }
 
 .price-card ul li i.fa-times {
-    color: #dc3545; /* Vermelho para X */
     margin-right: 10px;
 }
 
 .price-card .btn {
     width: 100%;
-}
-
-.guarantee {
-    margin-top: 40px;
-    font-size: 1.1em;
-    font-style: italic;
-    color: var(--light-text-color);
+    font-family: "Silkscreen", sans-serif;
+    font-size: 1em;
 }
 
 
@@ -695,7 +740,7 @@ p {
 }
 
 .contact-form {
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
     background-color: var(--white);
     padding: 40px;
@@ -706,12 +751,12 @@ p {
 
 .contact-form h3 {
     text-align: center;
-    margin-bottom: 30px;
-    color: var(--secondary-color);
+    margin-bottom: 15px;
+    color: var(--primary-color);
 }
 
 .contact-form .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .contact-form label {
