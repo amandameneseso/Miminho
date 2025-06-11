@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Image Preview Toggle ---
   const image = document.getElementById("previewImage");
   const image1 = "previa.png";
-  const image2 = "previa-desktop2.png";
+  const image2 = "previa-desktop.png";
 
   let showingFirst = true;
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         image.src = image2;
         image.classList.add("desktop-variant");
         // Adiciona a frase SOMENTE quando for image2
-        image.title = "Sim, também fica de noite no Miminho!";
+        // image.title = "Sim, também fica de noite no Miminho!";
       } else {
         image.src = image1;
         image.classList.remove("desktop-variant");
