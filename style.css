@@ -105,6 +105,7 @@ h1 {
     /* color: var(--primary-color); */
     text-shadow: 5px 5px 0px rgba(135, 164, 223, 0.6);
     font-family: var(--font-family-secondary);
+    color: #f3f8ff !important;
 }
 
 h2 {
@@ -262,7 +263,7 @@ p {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 60px; /* Ajuste conforme a altura da sua navbar */
+    top: 48px; /* Ajuste conforme a altura da sua navbar */
     left: 0;
     width: 100%;
     background-color: var(--white);
@@ -525,8 +526,8 @@ p {
 .faq-section {
   padding: 40px;
   text-align: center;
-  /* max-width: 700px; */
-  max-width: 60%;
+  max-width: 800px;
+  /* width: 60%; */
   margin: 0 auto;
 }
 
@@ -604,6 +605,16 @@ p {
   color: #666;
   line-height: 1.4;
   margin: 0px 20px; /* Remove margem padrão do parágrafo dentro da resposta */
+}
+
+.faq-answer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.faq-answer a:hover {
+  text-decoration: underline;
 }
 
 /* Seção de Compra */
@@ -928,11 +939,14 @@ footer {
     h2 {
         font-size: 2em;
     }
+    .hero-section {
+        padding: 80px 100px; /* Ajuste para mais espaço vertical, menos horizontal */
+    }
     .hero-content h1 {
-        font-size: 3.5em;
+        font-size: 2.8em; /* Levemente menor para tablets */
     }
     .hero-content .subtitle {
-        font-size: 1.2em;
+        font-size: 1.1em; /* Levemente menor */
     }
     .navbar .logo {
         font-size: 1.6em;
@@ -941,17 +955,69 @@ footer {
         margin-left: 20px;
     }
     section {
-        padding: 60px 0;
+        padding: 50px 0; /* Reduz o padding das seções para telas menores */
+    }
+    .faq-section {
+        padding: 30px 15px; /* Ajusta o padding da seção FAQ */
+    }
+    .faq-item {
+        width: 90%;
+        margin: 0 auto 15px auto;
+    }
+    .faq-answer img {
+        width: 145px;
     }
     .contact-form {
         padding: 30px;
     }
+    /* Manter display none para as imagens que não queremos em tablets */
+    .img-1,
+    .img-2 {
+        display: none;
+    }
+    /* Ajustes para grid em telas médias */
+    .features-section .feature-grid,
+    .testimonials-section .testimonial-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Permite 2 colunas se houver espaço, mas mínimo de 280px */
+        gap: 25px;
+    }
+    .buy-section .price-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mesma lógica para a grade de preços */
+        width: 90%; /* Ajuste a largura para ocupar mais espaço */
+    }
+    .contact-methods {
+        gap: 25px;
+    }
+    .price-card {
+        width: 40%;
+        margin: 0 auto;
+    }
 }
 
-/* Celulares e Telas Pequenas (Até 767px) */
+/* Dispositivos Móveis Grandes e Tablets Pequenos (600px a 767px) */
 @media (max-width: 767px) {
     .container {
         padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2.5em; /* Reduzindo mais o tamanho da fonte */
+    }
+
+    h2 {
+        font-size: 1.8em; /* Reduzindo mais o tamanho da fonte */
+        margin: 0 auto 30px auto;
+        width: 90%; /* Ocupa mais largura para quebrar o texto */
+    }
+
+    .section-description {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .como-funciona {
+        width: 80%; /* Aumenta a largura em telas menores */
+        padding: 25px;
     }
 
     /* Navbar Responsiva */
@@ -961,7 +1027,7 @@ footer {
         top: 100%; /* Abaixo da navbar */
         left: 0;
         width: 100%;
-        /* background-color: var(--white); */
+        background-color: var(--white); /* Garante que o menu tenha um fundo */
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         flex-direction: column;
         padding: 15px 0;
@@ -969,6 +1035,7 @@ footer {
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         transform: translateY(-100%); /* Esconde acima da tela */
         opacity: 0;
+        border-top: 1px solid var(--border-color); /* Adiciona uma borda no topo */
     }
 
     .navbar .nav-list.active {
@@ -986,7 +1053,7 @@ footer {
     .navbar .nav-list a {
         display: block;
         padding: 12px 20px;
-        border-bottom: 1px solid var(--background-dark);
+        border-bottom: 1px solid var(--border-color); /* Usar variável para consistência */
     }
     .navbar .nav-list li:last-child a {
         border-bottom: none;
@@ -995,6 +1062,7 @@ footer {
         width: auto;
         margin: 10px auto; /* Centraliza o botão comprar no menu mobile */
         display: block;
+        padding: 10px 20px; /* Ajusta o padding do botão */
     }
 
     .menu-toggle {
@@ -1008,13 +1076,13 @@ footer {
     }
     .hero-content {
         padding-right: 0;
-        margin-bottom: 40px;
+        margin-bottom: 30px; /* Reduz a margem inferior */
     }
     .hero-content h1 {
-        font-size: 2.8em;
+        font-size: 2.5em; /* Ajuste para mobile */
     }
     .hero-content .subtitle {
-        font-size: 1.1em;
+        font-size: 1em; /* Ajuste para mobile */
     }
     .hero-buttons {
         display: flex;
@@ -1023,22 +1091,46 @@ footer {
     }
     .hero-buttons .btn {
         margin: 0 auto;
-        width: 80%; /* Botões maiores para mobile */
+        width: 90%; /* Botões maiores para mobile */
         max-width: 300px;
     }
     .hero-image {
         width: 90%;
+        max-width: 350px; /* Limita o tamanho da imagem */
+    }
+    .hero-image img {
+        max-width: 70%; /* Garante que a imagem se ajuste ao contêiner */
+    }
+    .hero-image img.desktop-variant {
+        max-width: 100%;
     }
 
     /* Seções de Grid (Recursos, Depoimentos, Preços) */
-    .feature-grid, .testimonial-grid, .price-grid {
+    .feature-grid,
+    .testimonial-grid,
+    .price-grid {
         grid-template-columns: 1fr; /* Uma coluna em mobile */
+        gap: 20px; /* Reduz o espaçamento */
+    }
+    .feature-card,
+    .testimonial-card,
+    .price-card {
+        padding: 25px; /* Reduz o padding dos cards */
+    }
+    .price-card ul li {
+        font-size: 0.95em; /* Levemente menor para caber melhor */
+    }
+    .price-card .btn {
+        font-size: 0.95em; /* Ajusta o tamanho do botão */
     }
 
+
     /* Seção de Benefícios */
-    .benefit-item, .benefit-item.reverse {
+    .benefit-item,
+    .benefit-item.reverse {
         flex-direction: column; /* Sempre em coluna em mobile */
         text-align: center;
+        gap: 30px; /* Reduz o espaçamento entre itens */
     }
     .benefit-item .benefit-content {
         padding-right: 0;
@@ -1051,44 +1143,73 @@ footer {
     .contact-methods {
         flex-direction: column;
         align-items: center;
+        gap: 20px; /* Reduz o espaçamento */
+        margin-bottom: 40px; /* Reduz a margem inferior */
     }
     .contact-item {
         width: 90%;
-        max-width: 400px; /* Limita a largura em telas pequenas para não esticar muito */
+        max-width: 350px; /* Limita a largura em telas pequenas para não esticar muito */
+        padding: 25px; /* Reduz o padding */
     }
     .contact-form {
         padding: 25px;
+        max-width: 90%;
+    }
+    .contact-form label {
+        font-size: 0.95em;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .contact-form button {
+        padding: 10px 20px;
     }
 
+
     /* Footer */
-    footer .footer-content {
+    footer {
+        padding: 40px 0 15px 0; /* Ajusta o padding do footer */
+    }
+    .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 20px; /* Reduz o espaçamento */
     }
     .footer-brand, .footer-links, .footer-social {
-        margin-bottom: 20px;
+        margin-bottom: 15px; /* Reduz a margem inferior */
     }
     .footer-links ul {
         padding: 0;
     }
     .footer-social a {
-        margin: 0 10px;
+        margin: 0 8px; /* Reduz o espaçamento entre ícones sociais */
+        font-size: 1.4em; /* Levemente menor */
+    }
+    .footer-bottom p {
+        padding-top: 15px;
+        font-size: 0.85em; /* Ajusta o tamanho da fonte */
     }
 }
 
-/* Telas muito pequenas (até 380px) */
-@media (max-width: 380px) {
+/* Dispositivos Móveis Pequenos (até 480px) */
+@media (max-width: 480px) {
     h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
     h2 {
-        font-size: 1.8em;
+        font-size: 1.6em;
+        width: 100%; /* Ocupa a largura total */
+    }
+    .hero-section {
+        padding: 90px 0;
     }
     .hero-content h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
     .hero-content .subtitle {
-        font-size: 1em;
+        font-size: 0.95em;
     }
     .btn {
         padding: 10px 20px;
@@ -1103,74 +1224,162 @@ footer {
     .navbar.active .nav-list {
         top: 50px; /* Ajuste para navbar menor */
     }
-    .feature-card, .testimonial-card, .price-card, .contact-item {
+    .como-funciona {
+        width: 90%; /* Aumenta a largura para telas muito pequenas */
+    }
+    .feature-card,
+    .testimonial-card,
+    .price-card,
+    .contact-item {
         padding: 20px;
+        width: 100%; /* Ocupa a largura total do contêiner */
+    }
+    .feature-card .icon {
+        font-size: 2.2em; /* Reduz o tamanho do ícone */
     }
     .feature-card h3 {
-        font-size: 1.6em;
+        font-size: 1em; /* Ajusta o tamanho da fonte */
+    }
+    .price-card {
+        width: 85%;
     }
     .price-card h3 {
-        font-size: 1.8em;
+        font-size: 1.2em; /* Ajusta o tamanho da fonte do título do plano */
     }
     .price-card .price {
-        font-size: 2.5em;
+        font-size: 2em; /* Reduz o tamanho da fonte do preço */
     }
     .faq-question {
-        font-size: 1.1em;
-        padding: 15px 20px;
+        font-size: 0.95em;
+        padding: 12px 14px;
     }
     .faq-answer {
-        padding: 15px 20px;
+        padding: 0 15px 0px 15px;
+    }
+    .faq-answer p, .faq-answer li {
+        font-size: 0.9em;
+    }
+    .contact-form {
+        padding: 20px;
+    }
+    .contact-item {
+        width: 70%;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.85em;
     }
 }
 
-/* Telas ultra pequenas (até 320px) */
-@media (max-width: 320px) {
+/* Telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
     h1 {
-        font-size: 2.2em;
+        font-size: 2em;
     }
     h2 {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
     .hero-content h1 {
-        font-size: 2.2em;
+        font-size: 2em;
     }
     .hero-content .subtitle {
-        font-size: 0.95em;
+        font-size: 0.9em;
     }
     .btn {
-        padding: 8px 18px;
+        padding: 8px 16px;
         font-size: 0.85em;
     }
     .navbar .logo {
         font-size: 1.2em;
     }
+    .navbar.active .nav-list {
+        top: 45px; /* Ajuste para navbar ainda menor */
+    }
+    .feature-card h3 {
+        font-size: 0.9em; /* Ajusta o tamanho da fonte */
+    }
+    .price-card h3 {
+        font-size: 1em; /* Ajusta o tamanho da fonte do título do plano */
+    }
+    .price-card .price {
+        font-size: 1.8em; /* Reduz o tamanho da fonte do preço */
+    }
+    .faq-question {
+        font-size: 0.9em;
+        padding: 10px 12px;
+    }
+    .faq-answer {
+        padding: 0 6px 0px 6px;
+    }
+    .faq-answer p, .faq-answer li {
+        font-size: 0.85em;
+    }
+    .contact-item h3 {
+        font-size: 1.2em;
+    }
+    .contact-item p {
+        font-size: 0.9em;
+    }
+    .footer-social a {
+        font-size: 1.2em;
+    }
+}
+
+/* Telas ultra pequenas (até 320px) - Mantenho para compatibilidade máxima, mas com ajustes mais finos */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    .hero-content .subtitle {
+        font-size: 0.85em;
+    }
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+    .navbar .logo {
+        font-size: 1.1em;
+    }
     .navbar {
         padding: 8px 0;
     }
     .navbar.active .nav-list {
-        top: 45px; /* Ajuste para navbar ainda menor */
-    }
-    .feature-card, .testimonial-card, .price-card, .contact-item {
-        padding: 18px;
+        top: 40px; /* Ajuste para navbar ainda menor */
     }
     .feature-card h3 {
-        font-size: 1.4em;
+        font-size: 0.8em;
     }
     .price-card h3 {
-        font-size: 1.6em;
+        font-size: 0.9em;
     }
     .price-card .price {
-        font-size: 2.2em;
+        font-size: 1.6em;
     }
     .faq-question {
-        font-size: 1em;
-        padding: 12px 15px;
+        font-size: 0.85em;
+        padding: 8px 10px;
     }
     .faq-answer {
-        padding: 12px 15px;
+        padding: 0 10px 8px 10px;
+    }
+    .faq-answer p, .faq-answer li {
+        font-size: 0.8em;
     }
     .contact-form {
-        padding: 20px;
+        padding: 15px;
+    }
+    .contact-form label {
+        font-size: 0.8em;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px;
+        font-size: 0.8em;
     }
 }
