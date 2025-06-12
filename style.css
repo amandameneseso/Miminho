@@ -1211,6 +1211,10 @@ footer {
     .hero-content .subtitle {
         font-size: 0.95em;
     }
+    .hero-buttons {
+        width: 60%;
+        margin: 0 auto;
+    }
     .btn {
         padding: 10px 20px;
         font-size: 0.9em;
